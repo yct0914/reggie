@@ -19,9 +19,9 @@ import java.util.Map;
 @Slf4j
 public final class SmsUtils {
 
-    private static String accessKeyId = "LTAI5t6MdeUuavUEyTTg8XDQ";
+    private static String accessKeyId = "your AccessKeyId";
 
-    private static String accessKeySecret = "JSqAtGoxj9LWcrvSr5A2IV3Qe7InjQ";
+    private static String accessKeySecret = "Your AccessKeySecret";
 
     private static String signName = "阿里云短信测试";
 
