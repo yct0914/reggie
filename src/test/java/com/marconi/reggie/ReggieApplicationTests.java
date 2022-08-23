@@ -44,9 +44,5 @@ class ReggieApplicationTests {
 
     @Test
     void contextLoads() {
-        try {
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

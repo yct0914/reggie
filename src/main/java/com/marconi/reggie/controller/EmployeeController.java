@@ -59,6 +59,9 @@ public class EmployeeController {
     @GetMapping("/page")
     @PreAuthorize("hasAnyRole('admin','employee')")
     public Response<Page> page(Integer page, Integer pageSize, String name){
+        long id = Thread.currentThread().getId();
+        log.error("线程id为：{}",id);
+        System.out.println(Thread.activeCount());
         Page pageInfo = employeeService.page(page, pageSize, name);
         return new Response<>(200,pageInfo);
     }

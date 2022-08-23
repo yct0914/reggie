@@ -17,7 +17,6 @@ import java.util.List;
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
-
     /**
      * 静态资源访问配置
      * @param registry
@@ -26,6 +25,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/backend/**").addResourceLocations("classpath:/static/backend/");
         registry.addResourceHandler("/front/**").addResourceLocations("classpath:/static/front/");
+
     }
 
     /**
