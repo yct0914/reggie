@@ -17,8 +17,12 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @PostMapping("/get_code")
     public Response getCode(@RequestBody Map<String,String> info){
         boolean send = userService.sendValidateCode(info.get("phone"));

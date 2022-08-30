@@ -45,7 +45,6 @@ public class EmployeeDetailsServiceImpl implements UserDetailsService {
         }
         Long employeeId = employee.getId();
         auths = employeeService.getRolesByEmployeeId(employeeId);
-        System.out.println(auths);
         return new EmployeeDetail(employee,auths);
     }
 }

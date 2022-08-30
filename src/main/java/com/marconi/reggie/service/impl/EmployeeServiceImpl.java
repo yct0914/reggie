@@ -6,15 +6,11 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.marconi.reggie.common.CustomException;
+import com.marconi.reggie.common.*;
 import com.marconi.reggie.config.properties.RedisProperties;
-import com.marconi.reggie.common.EmployeeDetail;
 import com.marconi.reggie.mapper.EmployeeMapper;
 import com.marconi.reggie.pojo.DO.Employee;
 import com.marconi.reggie.service.EmployeeService;
-import com.marconi.reggie.common.JwtUtil;
-import com.marconi.reggie.common.RedisUtil;
-import com.marconi.reggie.common.Response;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -99,6 +95,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
             Claims claims = JwtUtil.parseJwt(token);
             String id = claims.getSubject();
             redisUtil.del("login:"+id);
+//            BaseContext.remove();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

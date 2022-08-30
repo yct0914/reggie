@@ -1,6 +1,5 @@
 package com.marconi.reggie;
 
-import com.marconi.reggie.common.SmsUtils;
 import com.marconi.reggie.config.properties.CommonProperties;
 import com.marconi.reggie.config.properties.JwtProperties;
 import com.marconi.reggie.mapper.EmployeeMapper;
@@ -15,6 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.ArrayDeque;
+import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 @Slf4j
 @SpringBootTest
@@ -45,7 +46,14 @@ class ReggieApplicationTests {
     SetMealService setMealService;
 
     @Test
-    void contextLoads() {
+    void contextLoads() throws ExecutionException, InterruptedException {
         ArrayDeque<Integer> q = new ArrayDeque<>();
+        new FutureTask(new Callable() {
+            @Override
+            public Object call() throws Exception {
+                System.out.println(111);
+                return null;
+            }
+        }).get();
     }
 }

@@ -24,7 +24,7 @@ public class JwtProperties {
      */
     public static String jwtKey = "Marconi";
 
-    public static Long getTtlMillis() {
+    public Long getTtlMillis() {
         return ttlMillis;
     }
 
@@ -32,7 +32,7 @@ public class JwtProperties {
         JwtProperties.ttlMillis = ttlMillis;
     }
 
-    public static String getJwtKey() {
+    public String getJwtKey() {
         return jwtKey;
     }
 

@@ -58,7 +58,6 @@ public class JwtUtil {
         Date now = new Date(nowMillis);
         if(ttlMillis==null){
             ttlMillis=JwtProperties.ttlMillis;
-            System.out.println(ttlMillis);
         }
         long expMillis = nowMillis + ttlMillis;
         Date expDate = new Date(expMillis);

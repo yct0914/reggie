@@ -21,8 +21,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
-    @Autowired
-    CategoryService categoryService;
+    final CategoryService categoryService;
+
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
     /**
      * 分页查询所有Category信息

@@ -27,8 +27,11 @@ import java.util.UUID;
 @Slf4j
 public class CommonController {
 
-    @Autowired
-    CommonProperties commonProperties;
+    private final CommonProperties commonProperties;
+
+    public CommonController(CommonProperties commonProperties) {
+        this.commonProperties = commonProperties;
+    }
 
     /**
      * 上传图片文件

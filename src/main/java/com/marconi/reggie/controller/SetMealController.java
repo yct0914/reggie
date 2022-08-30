@@ -20,8 +20,11 @@ import java.util.Map;
 @RestController
 public class SetMealController {
 
-    @Autowired
-    SetMealService setMealService;
+    private final SetMealService setMealService;
+
+    public SetMealController(SetMealService setMealService) {
+        this.setMealService = setMealService;
+    }
 
     @PostMapping
     public Response save(@RequestBody SetMealDTO setMealDTO){

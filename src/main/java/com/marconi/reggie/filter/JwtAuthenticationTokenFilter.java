@@ -29,8 +29,12 @@ import java.util.Objects;
 @Slf4j
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
-    @Autowired
-    private RedisUtil redisUtil;
+    private final RedisUtil redisUtil;
+
+    public JwtAuthenticationTokenFilter(RedisUtil redisUtil) {
+        this.redisUtil = redisUtil;
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         //获取token

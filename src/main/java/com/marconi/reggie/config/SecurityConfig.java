@@ -31,17 +31,20 @@ import java.util.List;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-    @Autowired
-    private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
+    private final JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
 
-    @Autowired
-    private AuthenticationEntryPoint authenticationEntryPoint;
+    private final AuthenticationEntryPoint authenticationEntryPoint;
 
-    @Autowired
-    private AccessDeniedHandler accessDeniedHandler;
+    private final AccessDeniedHandler accessDeniedHandler;
 
-    @Autowired
-    private SecurityProperties securityProperties;
+    private final SecurityProperties securityProperties;
+
+    public SecurityConfig(JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter, AuthenticationEntryPoint authenticationEntryPoint, AccessDeniedHandler accessDeniedHandler, SecurityProperties securityProperties) {
+        this.jwtAuthenticationTokenFilter = jwtAuthenticationTokenFilter;
+        this.authenticationEntryPoint = authenticationEntryPoint;
+        this.accessDeniedHandler = accessDeniedHandler;
+        this.securityProperties = securityProperties;
+    }
 
 
     /**

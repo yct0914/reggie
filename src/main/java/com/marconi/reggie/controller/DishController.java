@@ -23,8 +23,11 @@ import java.util.Map;
 @RequestMapping("/dish")
 public class DishController {
 
-    @Autowired
-    DishService dishService;
+    private final DishService dishService;
+
+    public DishController(DishService dishService) {
+        this.dishService = dishService;
+    }
 
     /**
      * 分页查询菜品信息

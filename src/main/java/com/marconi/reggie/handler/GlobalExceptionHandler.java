@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 全局Exception处理器 可以全局处理多种错误
@@ -21,6 +23,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 @ControllerAdvice(annotations = {RestController.class, Controller.class})
 @ResponseBody
 @Slf4j
+@SuppressWarnings("rawtypes")
 public class GlobalExceptionHandler {
 
     /**

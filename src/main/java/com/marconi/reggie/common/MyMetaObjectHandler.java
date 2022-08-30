@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.net.Socket;
-import java.net.SocketImpl;
 import java.time.LocalDateTime;
 
 /**
@@ -23,10 +21,14 @@ import java.time.LocalDateTime;
 @Slf4j
 public class MyMetaObjectHandler implements MetaObjectHandler {
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
-    @Autowired
-    RedisUtil redisUtil;
+    final PasswordEncoder passwordEncoder;
+    final RedisUtil redisUtil;
+
+    public MyMetaObjectHandler(PasswordEncoder passwordEncoder, RedisUtil redisUtil) {
+        this.passwordEncoder = passwordEncoder;
+        this.redisUtil = redisUtil;
+    }
+
     /**
      * 插入操作自动填充处理
      * @param metaObject 元数据
