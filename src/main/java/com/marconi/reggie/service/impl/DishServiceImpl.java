@@ -87,7 +87,7 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
         String directory;
         File file;
         boolean delete;
-        StringBuffer message = new StringBuffer();
+        StringBuilder message = new StringBuilder();
         //查看菜品是否关联套餐 若关联则无法删除
         this.handleRelatedSetMeal(removeList, cantMap);
         //删除菜品
@@ -140,7 +140,7 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
         List<String> errList = new ArrayList<>(updateList.size());
         String option = status==1 ? "启售" : "停售";
 
-        StringBuffer message;
+        StringBuilder message;
 
         for (String i : updateList){
             id = Long.parseLong(i);
@@ -153,7 +153,7 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
         if (errList.isEmpty()){
             return null;
         }
-        message = new StringBuffer("以下商品"+option+"时出错: ");
+        message = new StringBuilder("以下商品"+option+"时出错: ");
         errList.forEach(name -> {
             message.append(name+" ");
         });

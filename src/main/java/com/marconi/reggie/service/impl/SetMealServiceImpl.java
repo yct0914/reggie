@@ -115,7 +115,7 @@ public class SetMealServiceImpl extends ServiceImpl<SetMealMapper, SetMeal> impl
         if (errList.isEmpty()){
             return null;
         }
-        StringBuffer message = new StringBuffer("以下套餐删除失败: ");
+        StringBuilder message = new StringBuilder("以下套餐删除失败:");
         for (String name : errList){
             message.append(name+" ");
         }
@@ -126,7 +126,7 @@ public class SetMealServiceImpl extends ServiceImpl<SetMealMapper, SetMeal> impl
     public String updateStatus(List<String> updateList, Integer status) {
         Long id;
         Integer oldStatus;
-        StringBuffer message;
+        StringBuilder message;
 
         List<String> errList = new ArrayList<>(updateList.size());
         String option = status == 1 ? "启售" : "停售";
@@ -143,7 +143,7 @@ public class SetMealServiceImpl extends ServiceImpl<SetMealMapper, SetMeal> impl
         if (errList.isEmpty()){
             return null;
         }
-        message = new StringBuffer("以下商品"+option+"时出错: ");
+        message = new StringBuilder("以下商品"+option+"时出错: ");
         errList.forEach(name -> {
             message.append(name+" ");
         });

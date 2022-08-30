@@ -63,7 +63,7 @@ public class CommonController {
     public Response downloadImage(HttpServletResponse response, String name){
         String directory = commonProperties.getImageDirectory();
         File file = new File(directory, name);
-        int len = 0;
+        int len;
         byte[] bytes = new byte[1024];
         try {
             FileInputStream inputStream = new FileInputStream(file);

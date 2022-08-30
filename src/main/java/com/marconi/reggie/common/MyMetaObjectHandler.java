@@ -39,7 +39,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
             String password = passwordEncoder.encode(rowPassword);
             metaObject.setValue("password", password);
         }
-        Long id = Long.parseLong((String)redisUtil.get("id"));
+        Long id = BaseContext.getCurrentId();
         metaObject.setValue("createUser", id);
         metaObject.setValue("updateUser", id);
         metaObject.setValue("createTime", LocalDateTime.now());

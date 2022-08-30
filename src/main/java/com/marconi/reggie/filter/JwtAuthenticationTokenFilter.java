@@ -1,5 +1,6 @@
 package com.marconi.reggie.filter;
 
+import com.marconi.reggie.common.BaseContext;
 import com.marconi.reggie.common.EmployeeDetail;
 import com.marconi.reggie.common.JwtUtil;
 import com.marconi.reggie.common.RedisUtil;
@@ -51,6 +52,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         try {
             Claims claims = JwtUtil.parseJwt(token);
             userid = claims.getSubject();
+            //通过ThreadLocal存放用户id
+            BaseContext.setCurrentId(Long.parseLong(userid));
         } catch (Exception e) {
             if (e.getClass().equals(ExpiredJwtException.class)){
                 log.error("JWT已过期，请重新登录");

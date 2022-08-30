@@ -50,7 +50,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
 
         if (dishService.count(dishWrapper) > 0){
             List<Map<String, Object>> dishes = dishService.listMaps(dishWrapper);
-            StringBuffer msg = new StringBuffer("当前分类关联了以下菜品,无法删除!\t");
+            StringBuilder msg = new StringBuilder("当前分类关联了以下菜品,无法删除!\t");
             for (Map map : dishes){
                 msg.append(map.get("name")+",");
             }
@@ -61,7 +61,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         setMealWrapper.eq(SetMeal::getCategoryId, id);
         if (setMealService.count(setMealWrapper) > 0){
             List<Map<String, Object>> setMeals = setMealService.listMaps(setMealWrapper);
-            StringBuffer msg = new StringBuffer("当前分类关联了以下套餐,无法删除!\t");
+            StringBuilder msg = new StringBuilder("当前分类关联了以下套餐,无法删除!\t");
             for (Map map : setMeals){
                 msg.append("<"+map.get("name")+">");
             }
