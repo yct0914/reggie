@@ -53,6 +53,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     public boolean signup(Employee employee){
         boolean save = this.save(employee);
         //创建员工角色权限
+        employee =  getOne(new LambdaQueryWrapper<Employee>().eq(Employee::getUsername, employee.getUsername()));
         Long roleId = employeeMapper.selectRoleIdByRole("ROLE_employee");
         employeeMapper.insertEmployeeRole(employee.getId(),roleId);
         return save;

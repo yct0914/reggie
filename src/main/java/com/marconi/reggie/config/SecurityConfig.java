@@ -27,7 +27,7 @@ import java.util.List;
  * @author Marconi
  */
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
@@ -65,7 +65,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         permitPaths.add("/user/get_code");
         permitPaths.add("/common/**");
         permitPaths.add("/backend/**");
-        permitPaths.add("/front/**");
         String[] permitArray = permitPaths.toArray(new String[0]);
         http
                 //关闭csrf
