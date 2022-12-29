@@ -250,7 +250,7 @@
     <script src="../../plugins/element-ui/index.js"></script>
     <!-- 引入axios -->
     <script src="../../plugins/axios/axios.min.js"></script>
-    <script src="../../js/request.js"></script>
+    <script src="../../js/interceptor.js"></script>
     <script src="../../js/validate.js"></script>
     <script src="../../js/index.js"></script>
     <script src="../../api/food.js"></script>
@@ -324,7 +324,6 @@
           this.getDishList()
           // 口味临时数据
           this.getFlavorListHand()
-          this.id = requestUrlParam('id')
           this.actionType = this.id ? 'edit' : 'add'
           if (this.id) {
             this.init()

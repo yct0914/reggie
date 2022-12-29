@@ -60,18 +60,6 @@ const queryDishList = (params) => {
   })
 }
 
-// 文件down预览
-const commonDownload = (params) => {
-  return $axios({
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-    },
-    url: '/common/download',
-    method: 'get',
-    params
-  })
-}
-
 // 起售停售---批量起售停售接口
 const dishStatusByStatus = (params) => {
   return $axios({

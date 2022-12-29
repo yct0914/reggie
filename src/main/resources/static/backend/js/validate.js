@@ -1,12 +1,4 @@
-
-function isValidUsername (str) {
-  return ['admin', 'editor'].indexOf(str.trim()) >= 0;
-}
-
-function isExternal (path) {
-  return /^(https?:|mailto:|tel:)/.test(path);
-}
-
+//检查手机号格式
 function isCellPhone (val) {
   if (!/^1(3|4|5|6|7|8)\d{9}$/.test(val)) {
     return false
@@ -38,7 +30,6 @@ function checkName (rule, value, callback){
 }
 
 function checkPhone (rule, value, callback){
-  // let phoneReg = /(^1[3|4|5|6|7|8|9]\d{9}$)|(^09\d{8}$)/;
   if (value == "") {
     callback(new Error("请输入手机号"))
   } else if (!isCellPhone(value)) {//引入methods中封装的检查手机格式的方法

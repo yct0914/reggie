@@ -7,14 +7,6 @@ const getCategoryPage = (params) => {
   })
 }
 
-// 编辑页面反查详情接口
-const queryCategoryById = (id) => {
-  return $axios({
-    url: `/category/${id}`,
-    method: 'get'
-  })
-}
-
 // 删除当前列的接口
 const deleCategory = (ids) => {
   return $axios({
